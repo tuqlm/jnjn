@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rf_bg">#F4F5F7</color>
+    <color name="rf_card">#FFFFFF</color>
+    <color name="rf_card_tint">#EEF2FF</color>
+    <color name="rf_border">#DCE1E8</color>
+
+    <color name="rf_crimson">#DC2626</color>
+    <color name="rf_indigo">#4F46E5</color>
+    <color name="rf_emerald">#059669</color>
+    <color name="rf_amber">#D97706</color>
+
+    <color name="rf_ink">#111827</color>
+    <color name="rf_subink">#4B5563</color>
+    <color name="rf_muted">#9CA3AF</color>
+</resources>

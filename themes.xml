@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.RetroForgeGBA" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/rf_crimson</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/rf_indigo</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:windowBackground">@color/rf_bg</item>
+        <item name="android:statusBarColor">@color/rf_crimson</item>
+        <item name="android:navigationBarColor">@color/rf_card</item>
+    </style>
+</resources>

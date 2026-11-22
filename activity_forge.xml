@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/rf_bg">
+
+    <!-- Crimson Retro Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/rf_crimson"
+        android:paddingTop="12dp"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RetroForge GBA"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTopSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Viet hoa ROM Anh / Nhat / Phap / Trung / Nga"
+                    android:textColor="#FEE2E2"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLangPill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AUTO"
+                android:textColor="#DC2626"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="#FFFFFF"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp" />
+        </LinearLayout>
+
+        <!-- 4 Top Navigation Tabs -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/topTabs"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@android:color/transparent"
+            app:tabIndicatorColor="#FFFFFF"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabTextColor="#FECACA"
+            app:tabMode="fixed" />
+    </LinearLayout>
+
+    <!-- 4 Tab Pages -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- PAGE 0: ROM & ENCODING -->
+        <ScrollView
+            android:id="@+id/pageRom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/rf_card"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/rf_border"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. CHON ROM GAME BOY ADVANCE"
+                            android:textColor="@color/rf_crimson"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvRomDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Chua nap ROM. Ho tro moi game GBA tieng Anh, Nhat, Phap, Trung, Nga."
+                            android:textColor="@color/rf_ink"
+                            android:textSize="13sp"
+                            android:lineSpacingExtra="3dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnOpenRom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Chon file ROM (.gba hoac .zip)"
+                            app:backgroundTint="@color/rf_crimson"
+                            app:cornerRadius="10dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/rf_card"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/rf_border"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2. NGON NGU GOC &amp; BANG MA"
+                            android:textColor="@color/rf_indigo"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ngon ngu cua ROM:"
+                            android:textColor="@color/rf_subink"
+                            android:textSize="12sp" />
+
+                        <Spinner
+                            android:id="@+id/spnSourceLang"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Bang ma ky tu ROM:"
+                            android:textColor="@color/rf_subink"
+                            android:textSize="12sp" />
+
+                        <Spinner
+                            android:id="@+id/spnCharset"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnOpenTbl"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nap file bang ma (.tbl)"
+                            android:visibility="gone" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/swStripAccents"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:checked="false"
+                            android:text="Bo dau tieng Viet (Tat = Giu dau tieng Viet)"
+                            android:textColor="@color/rf_ink"
+                            android:textSize="13sp" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/swShortWords"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Quet them tu don ngan"
+                            android:textColor="@color/rf_subink"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Do rong dong hoi thoai (ky tu):"
+                                android:textColor="@color/rf_subink"
+                                android:textSize="13sp" />
+
+                            <EditText
+                                android:id="@+id/etLineCols"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:text="34" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExtractRom"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Quet &amp; Trich xuat van ban"
+                    app:backgroundTint="@color/rf_indigo"
+                    app:cornerRadius="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExportRom"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:text="Luu file .gba"
+                        app:backgroundTint="@color/rf_emerald"
+                        app:cornerRadius="12dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExportZip"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="Dong goi .zip"
+                        app:backgroundTint="@color/rf_amber"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvRomMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="San sang."
+                    android:textColor="@color/rf_emerald"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE 1: OFFLINE LANGUAGE PACK MANAGER -->
+        <ScrollView
+            android:id="@+id/pagePacks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tai goi ngon ngu Offline (~30MB/goi) 1 lan duy nhat de dich khong can mang hoac ket hop AI sieu toc:"
+                    android:textColor="@color/rf_subink"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="10dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/rf_card"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/rf_border"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPackEn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Goi Anh -> Viet (Offline)"
+                            app:backgroundTint="@color/rf_indigo" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPackJa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Goi Nhat -> Viet (Offline)"
+                            app:backgroundTint="@color/rf_crimson" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPackFr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Goi Phap -> Viet (Offline)"
+                            app:backgroundTint="#2563EB" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPackZh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Goi Trung -> Viet (Offline)"
+                            app:backgroundTint="@color/rf_amber" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPackRu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Goi Nga -> Viet (Offline)"
+                            app:backgroundTint="@color/rf_emerald" />
+
+                        <TextView
+                            android:id="@+id/tvPackStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Bam vao goi ngon ngu ban muon tai ve may."
+                            android:textColor="@color/rf_ink"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE 2: TRANSLATE ENGINE -->
+        <ScrollView
+            android:id="@+id/pageTranslate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/rf_card"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/rf_border"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvProgMain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0 / 0 cau (0%)"
+                            android:textColor="@color/rf_ink"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ProgressBar
+                            android:id="@+id/pbProgress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="8dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="@color/rf_crimson" />
+
+                        <TextView
+                            android:id="@+id/tvProgSpeed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="San sang dich."
+                            android:textColor="@color/rf_subink"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/rf_card"
+                    app:cardCornerRadius="14dp"
+                    app:strokeColor="@color/rf_border"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <RadioGroup
+                            android:id="@+id/rgMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/rbHybridAi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Ket hop Offline + Gemini AI (Nhanh + Chuan)" />
+
+                            <RadioButton
+                                android:id="@+id/rbOfflineOnly"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dich Offline ML Kit (Khong can mang)" />
+
+                            <RadioButton
+                                android:id="@+id/rbWifiTurbo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Online Wi-Fi Turbo (6 luong song song)" />
+
+                            <RadioButton
+                                android:id="@+id/rbAiOnly"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Gemini AI Toan bo (3 luong song song)" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/boxAiKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/rf_card_tint"
+                            android:padding="10dp"
+                            android:layout_marginTop="8dp">
+
+                            <EditText
+                                android:id="@+id/etGeminiKey"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Dan Gemini API Key (aistudio.google.com)"
+                                android:inputType="textPassword"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Gioi han so cau (0 = dich het):"
+                                android:textColor="@color/rf_subink"
+                                android:textSize="13sp" />
+
+                            <EditText
+                                android:id="@+id/etLimitCount"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:text="0" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnRunTrans"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="2"
+                                android:layout_marginEnd="6dp"
+                                android:text="Bat dau dich"
+                                app:backgroundTint="@color/rf_crimson"
+                                app:cornerRadius="10dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCancelTrans"
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:enabled="false"
+                                android:text="Dung"
+                                app:backgroundTint="#6B7280"
+                                app:cornerRadius="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnJsonOut"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="6dp"
+                                android:text="Xuat JSON" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnJsonIn"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Nhap JSON" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tvLogBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/rf_card"
+                    android:padding="10dp"
+                    android:textColor="@color/rf_ink"
+                    android:textSize="12sp"
+                    android:typeface="monospace"
+                    android:scrollbars="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE 3: EDITOR -->
+        <LinearLayout
+            android:id="@+id/pageEditor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="2"
+                    android:hint="Tim kiem text goc / ban dich..."
+                    android:singleLine="true"
+                    android:textSize="13sp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@color/rf_card" />
+
+                <Spinner
+                    android:id="@+id/spnStatusFilter"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvEditInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0 cau - Cham vao the de chinh sua"
+                android:textColor="@color/rf_subink"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLines"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
