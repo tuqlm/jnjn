@@ -1,0 +1,75 @@
+name: Build RetroForge GBA APK
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Auto-fix flat folder structure
+        run: |
+          if [ ! -f "app/build.gradle" ]; then
+            mkdir -p app/src/main/java/com/retroforge/gba/engine
+            mkdir -p app/src/main/java/com/retroforge/gba/screen
+            mkdir -p app/src/main/res/layout
+            mkdir -p app/src/main/res/drawable
+            mkdir -p app/src/main/res/values
+
+            for f in LineEntry.java MultiLangCodec.java RomAnalyzer.java RomBuilder.java MultiTranslator.java; do
+              [ -f "$f" ] && mv "$f" app/src/main/java/com/retroforge/gba/engine/
+            done
+            for f in ForgeActivity.java LineListAdapter.java; do
+              [ -f "$f" ] && mv "$f" app/src/main/java/com/retroforge/gba/screen/
+            done
+
+            [ -f "AndroidManifest.xml" ] && mv "AndroidManifest.xml" app/src/main/
+            [ -f "activity_forge.xml" ] && mv "activity_forge.xml" app/src/main/res/layout/
+            [ -f "row_line_entry.xml" ] && mv "row_line_entry.xml" app/src/main/res/layout/
+            [ -f "ic_forge_logo.xml" ] && mv "ic_forge_logo.xml" app/src/main/res/drawable/
+            for f in colors.xml strings.xml themes.xml; do
+              [ -f "$f" ] && mv "$f" app/src/main/res/values/
+            done
+
+            for g in "build.gradle" "build (1).gradle"; do
+              if [ -f "$g" ]; then
+                if grep -q "namespace" "$g"; then
+                  mv "$g" app/build.gradle
+                else
+                  mv "$g" build.gradle.root
+                fi
+              fi
+            done
+            [ -f "build.gradle.root" ] && mv build.gradle.root build.gradle
+          fi
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Accept Android SDK licenses
+        run: |
+          if [ -n "$ANDROID_HOME" ] && [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          fi
+
+      - name: Build Debug APK
+        run: gradle assembleDebug --stacktrace
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RetroForge-GBA-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
